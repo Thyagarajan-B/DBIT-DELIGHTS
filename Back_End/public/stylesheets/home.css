@@ -175,7 +175,6 @@ html {
 
 .rightsection img {
     width: 100%;
-    max-width: 350px;
     border-radius: 15px;
     animation: pulse 2s infinite ease-in-out;
 }
