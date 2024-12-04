@@ -18,9 +18,7 @@ DBIT Delights is a food ordering online application that simplifies the process 
 1. Clone the repository:
 2. Navigate to the backend directary using the command "cd Back_End"
 3. Then type "npm install"
-4. Then type "npm run dev"
-
-## Explain how users can interact with the project.
+4. Start the server using the command "npm run dev"
 
 ## Usage
 
@@ -29,7 +27,7 @@ DBIT Delights is a food ordering online application that simplifies the process 
 3. Add items to your cart and complete the checkout process.
 4. Restaurant staff can view and manage orders from the admin panel.
 
-   ## Technologies Used
+ ## Technologies Used
 
 - **Backend:** Node.js, Express.js
 - **Frontend:** EJS, CSS
