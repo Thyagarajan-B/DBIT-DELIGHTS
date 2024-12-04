@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don Bosco Delights</title>
+    <link rel="stylesheet" href="/stylesheets/menu.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="icon" href="/images/title.png" type="image/x-ico">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        .cart {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background-color: #2e2e2e;
+            color: #fff;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 999;
+            transition: right 0.3s ease;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .cart.open {
+            right: 0;
+        }
+
+        .cart_title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        .cart_content {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 10px;
+            padding: 0.4rem;
+        }
+
+        .cart_content div {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #3a3a3a;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .cart_content div button {
+            color: #ff4d4d;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .total_content {
+            margin-top: -10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        .pay_btn {
+            border-radius: 8px;
+            background-color: #da592f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 22px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            animation: fadeInUp 2.5s ease-out;
+            margin-bottom: 1rem;
+            margin-top: -0.8rem;
+        }
+
+        .delete_all_btn {
+            border-radius: 8px;
+            background-color: rgb(245, 60, 60);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bolder;
+            font-size: 22px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            animation: fadeInUp 2.5s ease-out;
+        }
+
+        .pay_btn:hover {
+            background-color: white;
+            color: #da592f;
+            font-weight: bolder;
+            transition: 0.18s ease-in;
+        }
+
+        .delete_all_btn:hover {
+            background-color: rgb(245, 116, 116);
+            color: black;
+            transition: 0.18s ease-in;
+        }
+
+        .close_btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .close_btn:hover {
+            background: #ff0000;
+        }
+
+        @media (max-width: 768px) {
+            .cart {
+                width: 100%;
+            }
+
+            .cart_content div {
+                font-size: 0.9rem;
+            }
+
+            .pay_btn,
+            .delete_all_btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <div class="resturantHead" style="z-index: auto;">
+            <div class="resturantName">
+                <h2>Don Bosco Delights</h2>
+            </div>
+            <div class="resturantBackToHome" style="position: relative;">
+                <button onclick="location.href='home'">Home</button>
+                <i class='bx bx-cart' style="font-size: 2rem; margin-left: 2rem; cursor: pointer;" id="cart_icon"
+                    data-quantity="0"></i>
+            </div>
+        </div>
+        <div class="cart" id="cart_section">
+            <button class="close_btn" onclick="closeCart()" style="color: white;">X</button>
+            <h2 style="padding: 1rem;">Your Cart</h2>
+            <div class="cart_content"></div>
+            <div class="total_content">
+                <div class="content_title">Total:</div>
+                <div class="total_price">Rs 0</div>
+            </div>
+            <button type="submit" class="pay_btn" onclick="buyNow()">Buy Now</button>
+            <button class="delete_all_btn" onclick="deleteAllItems()">Delete All</button>
+            <button onclick="toggleCart()" style="margin-top: 10px;">Close</button>
+        </div>
+    </section>
+
+    <section id="orderOnline">
+        <div class="menu-container">
+            <!-- Beverages Section -->
+            <div class="foodTitle" id="menu-1">
+                <h3>Beverages</h3>
+            </div>
+            <div class="berverages">
+                <div class="coffee">
+                    <img src="images/coffee.avif" alt="Coffee" width="120" height="120">
+                    <h4>Coffee</h4>
+                    <p>Rs 15.00</p>
+                    <div class="berveragesButton">
+                        <button onclick="addToCart('Coffee', 15)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="tea">
+                    <img src="images/tea.jpeg" alt="Tea" width="120" height="120">
+                    <h4>Tea</h4>
+                    <p>Rs 15.00</p>
+                    <div class="berveragesButton">
+                        <button onclick="addToCart('Tea', 15)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="lemonJuice">
+                    <img src="images/lemon_tea.jpeg" alt="" width="120" height="120">
+                    <h4>Lemon Juice</h4>
+                    <p>Rs 20.00</p>
+                    <div class="berveragesButton">
+                        <button onclick="addToCart('Lemon Juice', 20)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="watermelon">
+                    <img src="images/watermelon.jpeg" alt="" width="120" height="120">
+                    <h4>WaterMelon</h4>
+                    <p>Rs 40.00</p>
+                    <div class="berveragesButton">
+                        <button onclick="addToCart('WaterMelon', 40)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="orangeJuice">
+                    <img src="images/orange.jpeg" alt="" width="120" height="120">
+                    <h4>Orange Juice</h4>
+                    <p>Rs 40.00</p>
+                    <div class="berveragesButton">
+                        <button onclick="addToCart('Orange Juice', 40)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pineApple">
+                    <img src="images/pineapple.jpeg" alt="" width="120" height="120">
+                    <h4>pineapple Juice</h4>
+                    <p>Rs 40.00</p>
+                    <div class="berveragesButton">
+                        <button onclick="addToCart('Pineapple Juice', 40)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snacks Section -->
+            <div class="foodTitle">
+                <h3>Snacks</h3>
+            </div>
+            <div class="snacks">
+                <div class="samosa">
+                    <img src="images/samosa.jpeg" alt="Samosa" width="120" height="120">
+                    <h4>Samosa</h4>
+                    <p>Rs 20.00</p>
+                    <div class="snacksButton">
+                        <button onclick="addToCart('Samosa', 20)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="vegPuff">
+                    <img src="images/vegpuff.jpg" alt="Veg Puff" width="120" height="120">
+                    <h4>Veg Puff</h4>
+                    <p>Rs 20.00</p>
+                    <div class="snacksButton">
+                        <button onclick="addToCart('Veg Puff', 20)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="eggPuff">
+                    <img src="images/eggpuff.jpg" alt="" width="120" height="120">
+                    <h4>Egg Puff</h4>
+                    <p>Rs 25.00</p>
+                    <div class="snacksButton">
+                        <button onclick="addToCart('Egg Puff', 25)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="breadRoast">
+                    <img src="images/bread.jpg" alt="" width="120" height="120">
+                    <h4>Bread Roast</h4>
+                    <p>Rs 25.00</p>
+                    <div class="snacksButton">
+                        <button onclick="addToCart('Bread Roast', 25)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="lays">
+                    <img src="images/lays.jpg" alt="" width="120" height="120">
+                    <h4>Lays</h4>
+                    <p>Rs 10.00</p>
+                    <div class="snacksButton">
+                        <button onclick="addToCart('Lays', 10)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="sandwich">
+                    <img src="images/sandwich.jpg" alt="" width="120" height="120">
+                    <h4>Sandwich</h4>
+                    <p>Rs 40.00</p>
+                    <div class="snacksButton">
+                        <button onclick="addToCart('Sandwich', 20)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="foodTitle">
+                <h3>Indian</h3>
+            </div>
+            <div class="indian">
+                <div class="southMeals">
+                    <img src="images/south.jpg" alt="" width="120" height="120">
+                    <h4>South Indian Meals</h4>
+                    <p>Rs 60.00</p>
+                    <div class="indianButton">
+                        <button onclick="addToCart('South Indian Meals', 60)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="vegBiryani">
+                    <img src="images/biri.jpg" alt="" width="120" height="120">
+                    <h4>Veg Biryani</h4>
+                    <p>Rs 80.00</p>
+                    <div class="indianButton">
+                        <button onclick="addToCart('Veg Biryani', 80)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="dalKichdi">
+                    <img src="images/dal.jpg" alt="" width="120" height="120">
+                    <h4>Chapati Meals</h4>
+                    <p>Rs 40.00</p>
+                    <div class="indianButton">
+                        <button onclick="addToCart('Chapati Meals', 40)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Review Section -->
+
+    <section id="review">
+        <div class="review-container">
+            <div class="foodTitle">
+                <h3>Reviews</h3>
+            </div>
+            <div class="review-slider">
+                <div class="review-slide">
+                    <p><strong>Name:</strong> John D'Souza</p>
+                    <p>"The food at Don Bosco Delights is always fresh and delicious. Their masala dosa is a must-try!"
+                    </p>
+                </div>
+                <div class="review-slide">
+                    <p><strong>Name:</strong> Priya Sharma</p>
+                    <p>"A great place to grab a quick, tasty bite between classes. Their biryani is incredible!"</p>
+                </div>
+                <!-- Add more reviews -->
+            </div>
+            <div class="slider-controls">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let cart = [];
+        let total = 0;
+        let cartCount = 0;
+
+        function addToCart(itemName, price) {
+            cart.push({ itemName, price });
+            total += price;
+            cartCount++;
+            updateCart();
+            updateCartIcon();
+        }
+
+        function updateCart() {
+            const cartContent = document.querySelector('.cart_content');
+            const totalPriceElement = document.querySelector('.total_price');
+            cartContent.innerHTML = '';
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.innerHTML = `
+            <p>${item.itemName} - Rs ${item.price}</p>
+            <button onclick="removeFromCart(${index})" style="color: red; border: none; background: none; cursor: pointer;">Delete</button>
+        `;
+                cartContent.appendChild(cartItem);
+            });
+            totalPriceElement.textContent = `Rs ${total}`;
+        }
+
+        function updateCartIcon() {
+            const cartIcon = document.getElementById('cart_icon');
+            cartIcon.setAttribute('data-quantity', cartCount);
+        }
+
+        function removeFromCart(index) {
+            total -= cart[index].price;
+            cart.splice(index, 1);
+            cartCount--;
+            updateCart();
+            updateCartIcon();
+        }
+
+        function toggleCart() {
+            const cartElement = document.querySelector('.cart');
+            cartElement.classList.toggle('open');
+        }
+
+        document.getElementById('cart_icon').addEventListener('click', toggleCart);
+
+        document.body.addEventListener('click', (e) => {
+            const cartElement = document.querySelector('.cart');
+            if (!cartElement.contains(e.target) && e.target.id !== 'cart_icon') {
+                cartElement.classList.remove('open');
+            }
+        });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.review-slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
+            showSlide(currentSlide);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
+            showSlide(currentSlide);
+        });
+
+        showSlide(currentSlide);
+
+        function closeCart() {
+            const cartElement = document.querySelector('.cart');
+            cartElement.classList.remove('open');
+        }
+
+        function deleteAllItems() {
+            cart = [];
+            total = 0;
+            cartCount = 0;
+            updateCart();
+            updateCartIcon();
+        }
+
+        document.body.removeEventListener('click', closeCartOnClickOutside);
+
+        document.getElementById('cart_icon').addEventListener('click', toggleCart);
+
+        document.querySelector('.close_btn').addEventListener('click', () => {
+            const cart = document.querySelector('.cart');
+            cart.classList.remove('open');
+        });
+
+        function toggleCart() {
+            const cartSection = document.querySelector('.cart');
+            cartSection.classList.toggle('open');
+        }
+
+        async function buyNow() {
+            try {
+                const response = await fetch('/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(cart), // Send the cart array
+                });
+
+                if (response.ok) {
+                    alert('Order placed successfully!');
+                    cart = []; // Clear cart
+                    total = 0;
+                    cartCount = 0;
+                    updateCart();
+                    updateCartIcon();
+                } else {
+                    alert('Failed to place order!');
+                }
+            } catch (error) {
+                console.error('Error placing order:', error);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

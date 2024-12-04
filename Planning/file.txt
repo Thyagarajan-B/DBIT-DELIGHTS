@@ -1,0 +1,1062 @@
+menu
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/menu.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <section class="header">
+        <div class="resturantHead">
+            <div class="resturantName">
+                <h2>Don Bosco Delights</h2>
+            </div>
+            <div class="resturantBackToHome" style="position: relative;">
+                <button onclick="location.href='home'">Home</button>
+                <i class='bx bx-cart' style="font-size: 2rem; margin-left: 2rem;" id="cart_icon" data-quantity="0"></i>
+            </div>
+            <div class="cart">
+                <h2 class="cart_title">Your cart</h2>
+                <div class="cart_content"></div>
+                <div class="total_content">
+                    <div class="content_title">
+                        Total
+                    </div>
+                    <div class="total_price">0</div>
+                </div>
+                <button type="submit" class="pay_btn">Pay Now</button>
+            </div>
+            
+        </div>
+        <div class="resturantNav">
+            <div class="navItems">
+                <ul>
+                    <li> <button onclick="location.href = 'menu'">Overview</button></li>
+                    <li> <button onclick="location.href = '#menu-1'">Order Online</button></li>
+                    <li> <button onclick="location.href = '#review'">Reviews</button></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="overview">
+        <div class="overViewContainer">
+            <div class="overViewContainers">
+                <div class="overViewMenu">
+                    <h3>Menu</h3>
+                </div>
+                <div class="overViewCuisines">
+                    <h4>Cuisines</h4>
+                    <ul>
+                        <li><button>Biryani</button></li>
+                        <li><button>Chinese</button></li>
+                        <li><button>South Indian</button></li>
+                    </ul>
+                </div>
+                <div class="overViewCuisines">
+                    <h4>Top Dishes</h4>
+                    <ul>
+                        <li><button>Fried Rice</button></li>
+                        <li><button>Egg Rice</button></li>
+                        <li><button>Veg Biryani</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="orderOnline">
+        <div class="menu-container">
+            <div class="foodTitle" id="menu-1">
+                <h3>Berverages</h3>
+            </div>
+            <div class="berverages">
+                <div class="coffee">
+                    <img src="images/coffee.avif" alt="" width="120" height="120">
+                    <h4>Coffee</h4>
+                    <p>Rs 15.00</p>
+                    <div class="berveragesButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="tea">
+                    <img src="images/tea.jpeg" alt="" width="120" height="120">
+                    <h4>Tea</h4>
+                    <p>Rs 15.00</p>
+                    <div class="berveragesButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="lemonJuice">
+                    <img src="images/lemon_tea.jpeg" alt="" width="120" height="120">
+                    <h4>Lemon Juice</h4>
+                    <p>Rs 20.00</p>
+                    <div class="berveragesButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="watermelon">
+                    <img src="images/watermelon.jpeg" alt="" width="120" height="120">
+                    <h4>WaterMelon</h4>
+                    <p>Rs 40.00</p>
+                    <div class="berveragesButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="orangeJuice">
+                    <img src="images/orange.jpeg" alt="" width="120" height="120">
+                    <h4>Orange Juice</h4>
+                    <p>Rs 40.00</p>
+                    <div class="berveragesButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pineApple">
+                    <img src="images/pineapple.jpeg" alt="" width="120" height="120">
+                    <h4>pineapple Juice</h4>
+                    <p>Rs 40.00</p>
+                    <div class="berveragesButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="foodTitle">
+                <h3>Snack</h3>
+            </div>
+            <div class="snacks">
+                <div class="samosa">
+                    <img src="images/samosa.jpeg" alt="" width="120" height="120">
+                    <h4>Samosa</h4>
+                    <p>Rs 20.00</p>
+                    <div class="snacksButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="vegPuff">
+                    <img src="images/vegpuff.jpg" alt="" width="120" height="120">
+                    <h4>Veg Puff</h4>
+                    <p>Rs 20.00</p>
+                    <div class="snacksButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="eggPuff">
+                    <img src="images/eggpuff.jpg" alt="" width="120" height="120">
+                    <h4>Egg Puff</h4>
+                    <p>Rs 25.00</p>
+                    <div class="snacksButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="breadRoast">
+                    <img src="images/bread.jpg" alt="" width="120" height="120">
+                    <h4>Bread Roast</h4>
+                    <p>Rs 25.00</p>
+                    <div class="snacksButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="lays">
+                    <img src="images/lays.jpg" alt="" width="120" height="120">
+                    <h4>Lays</h4>
+                    <p>Rs 20.00</p>
+                    <div class="snacksButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="sandwich">
+                    <img src="images/sandwich.jpg" alt="" width="120" height="120">
+                    <h4>Sandwich</h4>
+                    <p>Rs 40.00</p>
+                    <div class="snacksButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="foodTitle">
+                <h3>Chinese</h3>
+            </div>
+            <div class="chinese">
+                <div class="vegFriedRice">
+                    <img src="images/vegfriedrice.jpg" alt="" width="120" height="120">
+                    <h4>Veg Fried Rice</h4>
+                    <p>Rs 50.00</p>
+                    <div class="chineseButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="vegNoodles">
+                    <img src="images/vegnoodles.jpg" alt="" width="120" height="120">
+                    <h4>Veg Noodles</h4>
+                    <p>Rs 50.00</p>
+                    <div class="chineseButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="schezwanFriedRice">
+                    <img src="images/s_fr.jpg" alt="" width="120" height="120">
+                    <h4>Schezwan FriedRice</h4>
+                    <p>Rs 50.00</p>
+                    <div class="chineseButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="schezwanNoodles">
+                    <img src="images/s_n.jpg" alt="" width="120" height="120">
+                    <h4>Schezwan Noodles</h4>
+                    <p>Rs 50.00</p>
+                    <div class="chineseButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="gobiManchurian">
+                    <img src="images/gobi.jpg" alt="" width="120" height="120">
+                    <h4>Gobi Manuchurian</h4>
+                    <p>Rs 40.00</p>
+                    <div class="chineseButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="paneer65">
+                    <img src="images/paneer.jpg" alt="" width="120" height="120">
+                    <h4>Paneer 65</h4>
+                    <p>Rs 40.00</p>
+                    <div class="chineseButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="foodTitle">
+                <h3>Indian</h3>
+            </div>
+            <div class="indian">
+                <div class="southMeals">
+                    <img src="images/south.jpg" alt="" width="120" height="120">
+                    <h4>South Indian Meals</h4>
+                    <p>Rs 60.00</p>
+                    <div class="indianButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="vegBiryani">
+                    <img src="images/biri.jpg" alt="" width="120" height="120">
+                    <h4>Veg Biryani</h4>
+                    <p>Rs 80.00</p>
+                    <div class="indianButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="dalKichdi">
+                    <img src="images/dal.jpg" alt="" width="120" height="120">
+                    <h4>Dal Kichdi</h4>
+                    <p>Rs 70.00</p>
+                    <div class="indianButton">
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="review">
+        <div class="review-container">
+            <div class="foodTitle">
+                <h3>Reviews</h3>
+            </div>
+            <div class="review-slider">
+                <div class="review-slide">
+                    <p><strong>Name:</strong> John D'Souza</p>
+                    <p class="p2">"The food at Don Bosco Delights is always fresh and delicious. Their masala dosa is a
+                        must-try!"</p>
+                </div>
+                <div class="review-slide">
+                    <p><strong>Name:</strong> Priya Sharma</p>
+                    <p class="p2">"A great place to grab a quick, tasty bite between classes. Their biryani is
+                        incredible!"</p>
+                </div>
+                <div class="review-slide">
+                    <p><strong>Name:</strong> Arjun Menon</p>
+                    <p class="p2">"Don Bosco Delights has the best filter coffee! Perfect for those late-night study
+                        sessions."</p>
+                </div>
+                <div class="review-slide">
+                    <p><strong>Name:</strong> Sarah Fernandez</p>
+                    <p class="p2">"Their samosas are so crispy and flavorful. The pricing is very student-friendly too."
+                    </p>
+                </div>
+                <div class="review-slide">
+                    <p><strong>Name:</strong> Rajiv Verma</p>
+                    <p class="p2">"The variety on the menu is amazing, and the paneer rolls are my favorite. Highly
+                        recommend!"</p>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </section>
+    <div class="footer">
+        <div class="sub-footer">
+            <h3>DBIT Delights</h3>
+        </div>
+        <div class="sub-footer">
+            <h3>Services</h3>
+            <ul>
+                <a href="">
+                    <li>Order</li>
+                </a>
+                <a href="">
+                    <li>Pricing</li>
+                </a>
+                <li>Fast Food</li>
+                <a href="">
+                    <li>Reserve your spot</li>
+                </a>
+            </ul>
+        </div>
+        <div class="sub-footer">
+            <h3>Information</h3>
+            <ul>
+                <a href="contactus">
+                    <li>Contact us</li>
+                </a>
+                <a href="aboutus">
+                    <li>Terms of Services</li>
+                </a>
+            </ul>
+        </div>
+        <div class="sub-footer">
+            <h3>Address</h3>
+            <ul>
+                <li>Lima-Peru</li>
+                <li>Jr Union #999</li>
+                <li>999-888-777</li>
+                <li>tastyfood@email.com</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        window.onload = () => {
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        };
+        const slides = document.querySelectorAll('.review-slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        showSlide(currentSlide);
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Cart state
+        const cart = {};
+
+        // Update the cart icon with the total number of items
+        function updateCartIcon() {
+            const cartIcon = document.querySelector('.cart i');
+            const itemCount = Object.values(cart).reduce((total, quantity) => total + quantity, 0);
+            cartIcon.textContent = itemCount ? ` (${itemCount})` : '';
+        }
+
+        // Add item to cart
+        function addToCart(itemName) {
+            if (cart[itemName]) {
+                cart[itemName]++;
+            } else {
+                cart[itemName] = 1;
+            }
+            updateCartIcon();
+            alert(`${itemName} added to cart!`);
+        }
+
+        // Attach event listeners to "Add to Cart" buttons
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.berveragesButton button, .snacksButton button, .chineseButton button, .indianButton button');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const itemName = button.parentElement.previousElementSibling.textContent.trim();
+                    addToCart(itemName);
+                });
+            });
+
+            updateCartIcon();
+        });
+
+
+
+    </script>
+</body>
+
+</html>
+
+menu css
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    background-color: #171717;
+    color: white;
+    font-family: "Itim", cursive;
+    scroll-behavior: smooth;
+}
+
+@keyframes smoothScroll {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        /* transform: translate(-100px); */
+        scale: 0;
+    }
+
+    to {
+        opacity: 1;
+        /* transform: translate(0px); */
+        scale: 1;
+    }
+}
+
+.resturantHead {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.resturantName h2 {
+    padding: 0.6rem;
+    color: white;
+}
+
+.resturantBackToHome {
+    padding: 0.6rem;
+}
+
+.resturantBackToHome button {
+    border-radius: 8px;
+    background-color: #da592f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+.resturantNav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(106, 106, 106, 0.1);
+    color: white;
+    margin-top: 1rem;
+}
+
+.resturantNav .navItems ul {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+    list-style: none;
+}
+
+.resturantNav .navItems li {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.resturantNav .navItems li a {
+    text-decoration: none;
+    color: white;
+}
+
+#cart_icon[data-quantity]::after {
+    content: attr(data-quantity);
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bolder;
+    font-size: 0.8rem;
+}
+.cart{
+    min-height: 100vh;
+    position: fixed;
+    right: 1rem;
+    top: 4rem;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+.navItems button {
+    border-radius: 8px;
+    background-color: #da592f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+.navItems button:hover {
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+    transition: 0.18s ease-in;
+}
+
+.header {
+    color: white;
+}
+
+.resturantBackToHome button:hover {
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+    transition: 0.18s ease-in;
+}
+
+.overViewContainer {
+    display: flex;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    margin: 0 auto;
+    margin-top: 13rem;
+    border-radius: 10px;
+}
+
+.overViewContainer .overViewContainers {
+    padding: 1rem;
+}
+
+.overViewContainers .overViewMenu {
+    padding: 0.6rem;
+    font-size: 1.6rem;
+}
+
+.overViewCuisines button {
+    color: rgb(159, 159, 159);
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+.overViewCuisines {
+    padding: 0.6rem;
+}
+
+.overViewMenu h3 {
+    color: #ef7a54;
+    font-size: 2rem;
+}
+
+.overViewCuisines h4 {
+    padding: 0.6rem;
+    font-size: 1.3rem;
+}
+
+.overViewCuisines ul {
+    display: flex;
+    gap: 3rem;
+    padding: 0.6rem;
+    list-style: none;
+}
+
+.overViewCuisines ul li button {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+}
+
+#orderOnline {
+    margin-top: 60px;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.foodTitle {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+    position: relative;
+}
+
+
+.berverages {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.foodTitle h3 {
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+}
+
+.berverages img {
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+}
+
+.berverages .coffee,
+.tea,
+.lemonJuice,
+.watermelon,
+.orangeJuice,
+.pineApple {
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 5px rgba(1, 1, 1, 1);
+    border-radius: 10px;
+}
+
+.berverages h4,
+p {
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.berverages .berveragesButton {
+    text-align: center;
+    padding: 0.3rem 1rem;
+}
+
+.berveragesButton button {
+    text-align: center;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.berverages button {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #ef7a54;
+}
+
+.berverages button:hover {
+    text-decoration: underline;
+}
+
+.snacks {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.snacks img {
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+}
+
+.snacks .samosa,
+.vegPuff,
+.eggPuff,
+.breadRoast,
+.lays,
+.sandwich {
+    padding: 0.5rem 2rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.snacks button {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #ef7a54;
+}
+
+.snacks button:hover {
+    text-decoration: underline;
+}
+
+.snacks h4,
+p {
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.snacks .snacksButton {
+    text-align: center;
+    padding: 0.3rem 1rem;
+}
+
+.snacksButton button {
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.chinese {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.chinese img {
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+}
+
+.chinese .vegFriedRice,
+.vegNoodles,
+.schezwanFriedRice,
+.schezwanNoodles,
+.gobiManchurian,
+.paneer65 {
+    padding: 0.5rem 2rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.chinese h4,
+p {
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.chinese .chineseButton {
+    text-align: center;
+    padding: 0.3rem 1rem;
+}
+
+.chineseButton button {
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.chinese button {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #ef7a54;
+}
+
+.chinese button:hover {
+    text-decoration: underline;
+}
+
+.indian {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.indian img {
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+}
+
+.indian .southMeals,
+.vegBiryani,
+.dalKichdi {
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.indian h4,
+p {
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.indian .indianButton {
+    text-align: center;
+    padding: 0.3rem 1rem;
+}
+
+.indian button {
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #ef7a54;
+    border: none;
+    cursor: pointer;
+}
+
+.indian button:hover {
+    text-decoration: underline;
+}
+
+#review {
+    text-align: center;
+    padding: 20px;
+}
+
+.review-slider {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
+}
+
+.review-slide {
+    display: none;
+    font-size: 18px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(160, 160, 160);
+    margin: 10px auto;
+}
+
+.review-slide.active {
+    display: block;
+}
+
+.slider-controls {
+    margin-top: 10px;
+    gap: 3rem;
+}
+
+#prevBtn {
+    margin-right: 2rem;
+}
+
+.slider-controls button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #da592f;
+    color: white;
+    border: none;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+.review-slide strong {
+    color: #da592f;
+    font-weight: bold;
+}
+
+.p2 {
+    color: rgb(143, 143, 143);
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+
+    .berverages,
+    .snacks,
+    .chinese,
+    .indian {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+h3 {
+    padding: 0.3rem;
+}
+
+ul {
+    list-style: none;
+    cursor: pointer;
+}
+
+li {
+    padding: 0.3rem;
+    color: rgba(90, 88, 88, 0.897);
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .sub-footer {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .resturantNav {
+        display: none;
+    }
+
+    .resturantName h2 {
+        font-size: 2rem;
+    }
+
+    .resturantBackToHome button {
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .overViewContainer .overViewContainers {
+        margin-top: -100px;
+    }
+}
+
+.contact-us {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.head h3 {
+    padding: 0.5rem;
+}
+
+.head p {
+    padding: 0.5rem;
+}
+
+
+@media (max-width: 768px) {
+    .contact-us {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+

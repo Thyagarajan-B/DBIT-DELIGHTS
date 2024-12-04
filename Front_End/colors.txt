@@ -1,0 +1,1179 @@
+buttons{
+    border-radius: 8px;
+    background-color: #da592f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+buttons:hover{
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+transition: 0.18s ease-in;
+}
+
+animation{
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+}
+colors{
+    color: #ef7a54;
+    color: rgb(159, 159, 159);
+}
+
+// Start Functionality..
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            font-size: 24px;
+        }
+
+        .star {
+            cursor: pointer;
+            color: gray;
+            transition: color 0.3s;
+        }
+
+        .star:hover,
+        .star:hover~.star {
+            color: orange;
+        }
+
+        .star.selected {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rating-section">
+        <h2>Rate Your Experience</h2>
+        <div class="stars">
+            <span class="star" data-value="1 star">★</span>
+            <span class="star" data-value="2 star">★</span>
+            <span class="star" data-value="3 star">★</span>
+            <span class="star" data-value="4 star">★</span>
+            <span class="star" data-value="5 star">★</span>
+        </div>
+        <p class="rating-output">Your Rating: 0</p>
+    </div>
+    <script>
+        const stars = document.querySelectorAll(".star");
+        const ratingOutput = document.querySelector(".rating-output");
+
+        stars.forEach((star) => {
+            star.addEventListener("click", () => {
+                // Reset all stars
+                stars.forEach((s) => s.classList.remove("selected"));
+                // Highlight clicked star and previous ones
+                star.classList.add("selected");
+                let rating = star.getAttribute("data-value");
+                stars.forEach((s) => {
+                    if (s.getAttribute("data-value") <= rating) {
+                        s.classList.add("selected");
+                    }
+                });
+                // Update the rating output
+                ratingOutput.textContent = `Your Rating: ${rating}`;
+            });
+        });
+
+    </script>
+</body>
+
+</html>
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBIT Delights</title>
+    <link rel="icon" href="./Assets/title.png" type="image/x-ico">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul id="menu">
+                <div class="close-menu" id="closeMenu" style="display: none;">&times;</div>
+                <li><a href="#">Home</a></li>
+                <li><a href="#order">About Us</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#menu-section">Order Now</a></li>
+                <li><a href="#ctnt">Contact Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="signin btn">Sign In</button>
+                <button class="login btn">Login</button>
+                <button class="cart btn">Cart</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="leftsection">
+                <div class="smallone">
+                    Taste, Chill, Repeat
+                </div>
+                <div class="slogan">
+                    DON BOSCO DELIGHTS
+                    <br>
+                </div>
+                <div class="des">
+                    <p>Fuel your day with flavors that bring friends together, inspire relaxation, and add a dash of
+                        campus spirit to every cup.</p>
+                </div>
+                <span id="element"></span>
+                <div class="order">
+                    <button onclick="window.location.href='#menu-section';" id="order">
+                        Order now
+                    </button>
+                </div>
+            </div>
+            <div class="rightsection">
+                <img width="400" src="./Assets/main.jpg" alt="Main_Image">
+            </div>
+        </div>
+        <section class="about-section" id="about-section">
+            <div class="about-content" id="abt-content">
+                <div class="about-image">
+                    <img src="./Assets/about.jpg" alt="Fresh Ingredients " id="about_img">
+                </div>
+                <div class="about-text">
+                    <h4>About us</h4>
+                    <h1>We cook the best tasty food</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptatem eligendi fuga. Optio
+                        laborum molestias a inventore ducimus explicabo.</p>
+                    <button class="explore-btn" id="explore">Explore more..</button>
+                </div>
+            </div>
+        </section>
+        <div id="service"></div>
+        <section class="services-section">
+            <div class="services-header">
+                <h4>Offering</h4>
+                <h1>Our amazing services</h1>
+            </div>
+            <div class="services-container">
+                <div class="service-card">
+                    <img src="./Assets/plate.png" alt="">
+                    <h2>Excellent food</h2>
+                    <p>
+                        We offer our clients excellent quality services for many years,
+                        with the best and delicious food in the city.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <img src="./Assets/fast.png" alt="Fast Food Icon">
+                    <h2>Fast food</h2>
+                    <p>
+                        We offer our clients excellent quality services for many years,
+                        with the best and delicious food in the city.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <img src="./Assets/delivery.png" alt="Delivery Icon">
+                    <h2>Delivery</h2>
+                    <p>
+                        We offer our clients excellent quality services for many years,
+                        with the best and delicious food in the city.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="menu-section" id="menu-section">
+            <div class="menu">
+                <h2>Top Rated Foods..</h2>
+                <div class="dishes">
+                    <div class="dish1">
+                        <div class="d1">
+                            <img src="./Assets/tea.webp"
+                                alt="Tea_Pic" width="150" style="border-radius: 30%;">
+                        </div>
+                        <h4>Tea</h4>
+                        <p>Tea: Comfort in every sip.</p>
+                        <p>₹15</p>
+                        <div class="icon">
+                            <img src="./Assets/card.png" alt="" width="30">
+                        </div>
+                    </div>
+                    <div class="dish2">
+                        <div class="d1">
+                            <img src="./Assets/coffee.avif"
+                                alt="" height="110" style="border-radius: 30%;">
+                        </div>
+                        <h4>Coffee</h4>
+                        <p>Coffee: Energy in every sip.</p>
+                        <p>₹15</p>
+                        <div class="icon">
+                            <img src="./Assets/card.png" alt="" width="30">
+                        </div>
+                    </div>
+                    <div class="dish3">
+                        <div class="d1">
+                            <img src="./Assets/samosa.jpg"
+                                alt="" width="150">
+                        </div>
+                        <h4>Samosa</h4>
+                        <p>Crunchy and flavorful</p>
+                        <p>₹20</p>
+                        <div class="icon">
+                            <img src="./Assets/card.png" alt="" width="30" style="border-radius: 40%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="explore">
+                    <button>Explore More..</button>
+                </div>
+            </div>
+        </section>
+        <section class="contact-section" id="ctnt">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h4>Let's talk</h4>
+                    <h1>Contact us</h1>
+                    <p>
+                        If you want to reserve a table in our restaurant, contact us and we will
+                        attend to you quickly, with our 24/7 chat service.
+                    </p>
+                </div>
+                <div class="contact-button">
+                    <button>Contact us now</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <div class="hr"></div>
+    <footer>
+        <div class="footer">
+            <div class="sub-footer">
+                <h3>DBIT Delights</h3>
+            </div>
+            <div class="sub-footer">
+                <h3>Services</h3>
+                <ul>
+                    <a href="">
+                        <li>Order</li>
+                    </a>
+                    <a href="">
+                        <li>Pricing</li>
+                    </a>
+                    <li>Fast Food</li>
+                    <a href="">
+                        <li>Reserve your spot</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="sub-footer">
+                <h3>Information</h3>
+                <ul>
+                    <a href="">
+                        <li>Contact us</li>
+                    </a>
+                    <a href="">
+                        <li>Terms of Services</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="sub-footer">
+                <h3>Address</h3>
+                <ul>
+                    <li>Lima-Peru</li>
+                    <li>Jr Union #999</li>
+                    <li>999-888-777</li>
+                    <li>tastyfood@email.com</li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Brewed for You.', 'Sip and Relax.', 'Campus Vibes.', 'Taste the Moment.', 'Where Every Sip Inspires.'],
+            typeSpeed: 50,
+            loop: true
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+css
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    background-color: #171717;
+    color: white;
+    font-family: "Itim", cursive;
+    scroll-behavior: smooth;
+}
+
+@keyframes smoothScroll {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        /* transform: translate(-100px); */
+        scale: 0;
+    }
+
+    to {
+        opacity: 1;
+        /* transform: translate(0px); */
+        scale: 1;
+    }
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(80, 80, 80, 0.5);
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    margin-right: 20px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    padding: 8px 15px;
+    color: #ef7a54;
+}
+
+.nav ul li a:hover {
+    border-radius: 10px;
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+    transition: 0.2s ease-in;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1.3rem;
+    border: none;
+}
+
+.auth-buttons button {
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #da592f;
+    border: none;
+    font-weight: bold;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.auth-buttons button:hover {
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+    transition: 0.18s ease-in;
+}
+
+
+.hero {
+    display: flex;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 20px;
+    gap: 20px;
+    transition: all 0.3s ease;
+    margin-top: 90px;
+}
+
+.hero:hover {
+    transform: scale(1.02);
+}
+
+
+.leftsection {
+    flex: 1;
+    padding-right: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.leftsection h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+
+.rightsection {
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.rightsection img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 15px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.smallone {
+    font-weight: 700;
+    color: #da592f;
+    margin-bottom: 20px;
+    font-size: 24px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.slogan {
+    font-weight: bolder;
+    font-size: 4rem;
+    animation: fadeInUp 1.8s ease-out;
+}
+
+.des {
+    padding: 30px;
+    font-size: 1.4rem;
+    animation: fadeInUp 2s ease-out;
+}
+
+
+#element {
+    font-size: 3rem;
+    font-weight: 500;
+    animation: fadeInUp 2.2s ease-out;
+}
+
+
+.order button {
+    border-radius: 8px;
+    background-color: #da592f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    margin-top: 40px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+.order button:hover {
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+    transition: 0.18s ease-in;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 10;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #ef7a54;
+    border-radius: 3px;
+    transition: transform 0.3s;
+}
+
+.close-menu {
+    display: none;
+    font-size: 2rem;
+    color: #ef7a54;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.about-section {
+    scroll-margin-top: 80px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+}
+
+.about-text {
+    max-width: 500px;
+}
+
+.about-text h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #da592f;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.about-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: rgb(170, 170, 170);
+}
+
+.explore-btn {
+    border-radius: 8px;
+    background-color: #da592f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+.explore-btn:hover {
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+    transition: 0.18s ease-in;
+}
+
+.about-section:hover {
+    transform: scale(1.02);
+}
+
+.services-section {
+    text-align: center;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    padding: 50px 20px;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    margin-top: 100px;
+}
+
+.services-header h4 {
+    font-size: 18px;
+    color: #ef7a54;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.services-header h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+.service-card {
+    border-radius: 10px;
+    border: 2px solid gray;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.service-card h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: rgb(159, 159, 159);
+}
+
+h3 {
+    padding: 0.3rem;
+}
+
+ul {
+    list-style: none;
+    cursor: pointer;
+}
+
+li {
+    padding: 0.3rem;
+    color: rgba(90, 88, 88, 0.897);
+}
+
+a {
+    text-decoration: none;
+}
+
+.menu-section {
+    margin-top: 20px;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+
+}
+
+.menu h2 {
+    text-align: center;
+    padding: 0.5rem;
+    color: #da592f;
+    font-size: 2rem;
+}
+
+.d1 img {
+    text-align: center;
+}
+
+.dishes {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.dish1,
+.dish2,
+.dish3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    padding: 10px 40px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.dish1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+    transition: 0.1s ease-in-out;
+}
+
+.dish2:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+    transition: 0.1s ease-in-out;
+}
+
+.dish3:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+    transition: 0.1s ease-in-out;
+}
+
+.dishes h4 {
+    padding: 0.3rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.dishes p {
+    padding: 0.3rem;
+    color: rgb(159, 159, 159);
+    font-size: 1rem;
+}
+
+.dishes .d1 {
+    display: flex;
+    justify-content: center;
+}
+
+.dishes .icon {
+    width: 30%;
+}
+
+.icon img {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 0.4rem;
+    border-radius: 4px;
+
+}
+
+.explore {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.explore button {
+    border-radius: 8px;
+    background-color: #da592f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+.explore button:hover {
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+    transition: 0.18s ease-in;
+}
+
+.contact-us {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.head h3 {
+    padding: 0.5rem;
+}
+
+.head p {
+    padding: 0.5rem;
+    color: rgb(159, 159, 159);
+    ;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+}
+
+.btn button {
+    padding: 0.7rem;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.contact-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    animation: smoothScroll 1s ease-out, fadeInUp 1s ease-out;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact-text h4 {
+    font-size: 18px;
+    color: #da592f;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.contact-text p {
+    font-size: 18px;
+    color: rgb(159, 159, 159);
+
+}
+
+.contact-button button {
+    border-radius: 8px;
+    background-color: #da592f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+.contact-button button:hover {
+    background-color: white;
+    color: #da592f;
+    font-weight: bolder;
+    transition: 0.18s ease-in;
+}
+
+.hr {
+    height: 1px;
+    width: 100%;
+    background-color: gray;
+}
+
+.footer {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+    .rightsection img {
+        width: 70%;
+        margin-top: 60px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .leftsection,
+    .rightsection {
+        padding: 0;
+    }
+
+    .slogan {
+        font-size: 2.24rem;
+    }
+
+    .des {
+        font-size: 1.2rem;
+    }
+
+    .order button {
+        font-size: 2rem;
+    }
+
+    #element {
+        font-size: 2.4rem;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: relative;
+        z-index: 1;
+    }
+
+    #menu {
+        width: 40%;
+    }
+
+    .nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #171717;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        text-align: left;
+    }
+
+    .nav ul.active {
+        display: flex;
+    }
+
+    .nav ul li {
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    .nav ul li a {
+        padding: 8px 15px;
+        color: #ef7a54;
+        font-size: 1.5rem;
+        margin-left: 20px;
+        display: block;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav ul {
+        justify-content: center;
+    }
+
+    .auth-buttons {
+        position: absolute;
+        right: 12px;
+    }
+
+    .nav ul.active+.close-menu {
+        display: block;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-image img {
+        max-width: 100%;
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+
+    .about-text h1 {
+        font-size: 28px;
+    }
+
+    .explore-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .dishes {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .dish1,
+    .dish2,
+    .dish3 {
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .sub-footer {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .contact-us {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-button button {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text h1 {
+        font-size: 24px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    .explore-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+
+JS
+
+console.log("JavaScript started....");
+window.onload = ()=>{
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"smooth"
+    });
+};
+
+const hamburgerMenu = document.getElementById('hamburgerMenu');
+const closeMenu = document.getElementById('closeMenu');
+const navLinks = document.getElementById('menu');
+
+hamburgerMenu.addEventListener('click', () => {
+    navLinks.classList.add('active');
+    closeMenu.style.display = 'block';
+    hamburgerMenu.style.display = 'none';
+});
+
+closeMenu.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    closeMenu.style.display = 'none';
+    hamburgerMenu.style.display = 'flex';
+});

@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Itim", cursive;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #111;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.container {
+    max-width: 600px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    animation: popIn 0.8s ease-out forwards;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #da592f;
+    opacity: 0;
+    animation: fadeInText 1.2s ease-out 0.4s forwards;
+}
+
+.container h1 span {
+    color: white;
+    font-family: 'Itim', cursive;
+}
+
+.container p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+    opacity: 0;
+    animation: fadeInText 1.2s ease-out 0.6s forwards;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeInText 1.2s ease-out 0.8s forwards;
+}
+
+.auth-buttons button {
+    transition: all 0.3s ease;
+    background-color: #da592f;
+    border: none;
+    font-weight: bold;
+    border-radius: 8px;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-buttons button:hover {
+    background-color: white;
+    color: #da592f;
+    transform: scale(1.1);
+}
+
+.auth-buttons button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.4s;
+}
+
+.auth-buttons button:hover::before {
+    left: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    .container p {
+        font-size: 1rem;
+    }
+
+    .auth-buttons button {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 1.8rem;
+    }
+
+    .container p {
+        font-size: 0.9rem;
+    }
+
+    .auth-buttons button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}
