@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - Don Bosco Delights</title>
+    <title>Sign In - Global Delights</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@400&display=swap"
         rel="stylesheet">
     <link rel="icon" href="/images/title.png" type="image/x-ico">
@@ -17,8 +17,9 @@
         <div class="form-box">
             <h1 class="heading">Sign Up </h1>
             <form action="/signup" method="POST">
-                <input type="text" name="name" placeholder="Enter your Name" class="input-field" required>
-                <input type="text" name="email" placeholder="Enter your Email" class="input-field" required>
+                <input type="text" name="name" placeholder="Enter your Name" class="input-field" pattern="[A-Za-z]+"
+                    title="Only alphabets are allowed" required>
+                <input type="email" name="email" placeholder="Enter your Email" class="input-field"  pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address (e.g., example@gmail.com)"required>
                 <input type="password" name="password" placeholder="Enter your Password" class="input-field" required>
                 <button type="submit" class="submit-btn">Register</button>
             </form>

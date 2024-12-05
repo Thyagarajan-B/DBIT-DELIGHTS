@@ -33,9 +33,14 @@ function isAuthenticated(req, res, next) {
 }
 
 const orderSchema = new mongoose.Schema({
-    username: String,
-    itemName: String,
-    price: Number,
+    userName: String, // The name of the user placing the order
+    items: [
+        {
+            itemName: String,
+            price: Number,
+        },
+    ],
+    total: Number,
     orderTime: { type: Date, default: Date.now },
 });
 
@@ -122,6 +127,11 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.use((req, res, next) => {
+    res.locals.user = req.session.user || null; // Pass user data to EJS templates
+    next();
+});
+
 // Home route
 app.get('/home', isAuthenticated, (req, res) => {
     const name = req.session.name;
@@ -193,7 +203,7 @@ app.post('/admin/login', (req, res) => {
 
 app.get('/admin/dashboard', (req, res) => {
     if (!adminLoggedIn) {
-        return res.status(403).send(`
+        return res.status(403).send(`   
             <h1>Unauthorized Access!</h1>
             <b><a href="/admin">Admin Login</a></b>
         `);
@@ -201,20 +211,22 @@ app.get('/admin/dashboard', (req, res) => {
     res.render('admin');
 });
 
+// Get all orders for admin
 app.get('/admin/orders', async (req, res) => {
     try {
-        const orders = await Order.find().sort({ orderTime: -1 }); // Fetch orders from the database
+        const orders = await Order.find();
         res.json(orders);
-    } catch (err) {
-        console.error("Error fetching orders:", err);
-        res.status(500).json({ message: "Failed to fetch orders." });
+    } catch (error) {
+        console.error('Error fetching orders:', error);
+        res.status(500).json({ message: 'Failed to fetch orders' });
     }
 });
 
+
 // Admin logout route
 app.get('/admin/logout', (req, res) => {
-    adminLoggedIn = false; 
-    res.redirect('/admin'); 
+    adminLoggedIn = false;
+    res.redirect('/admin');
 });
 
 
@@ -228,8 +240,11 @@ app.get('/aboutus', isAuthenticated, (req, res) => {
 });
 
 app.get('/menu', isAuthenticated, (req, res) => {
-    res.render('menu');
+    const userName = req.session.name; // Retrieve user's name from the session
+    console.log('Logged-in user:', userName); // Debugging: check if name is available
+    res.render('menu', { user: { name: userName } }); // Pass user object to the EJS template
 });
+
 
 app.post('/api/orders', async (req, res) => {
     try {
@@ -253,21 +268,21 @@ app.post('/api/orders', async (req, res) => {
         res.status(500).json({ message: "Failed to place order." });
     }
 });
+// Place an order
 app.post('/order', async (req, res) => {
-    const orders = req.body;
+    const { userName, items, total } = req.body;
+
+    if (!userName || !items.length || total <= 0) {
+        return res.status(400).json({ message: 'Invalid order details' });
+    }
 
     try {
-        await Order.insertMany(
-            orders.map(order => ({
-                itemName: order.itemName,
-                price: order.price,
-                orderTime: new Date(),
-            }))
-        );
-        res.status(200).send({ message: 'Order placed successfully' });
+        const order = new Order({ userName, items, total });
+        await order.save();
+        res.status(200).json({ message: 'Order placed successfully' });
     } catch (error) {
-        console.error('Error placing order:', error);
-        res.status(500).send({ message: 'Failed to place order' });
+        console.error('Error saving order:', error);
+        res.status(500).json({ message: 'Failed to place order' });
     }
 });
 

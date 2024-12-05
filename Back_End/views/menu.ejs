@@ -359,6 +359,14 @@
         let total = 0;
         let cartCount = 0;
 
+        // Pass the userName from the server to JavaScript
+        const userName = "<%= user ? user.name : '' %>";  // Use the user session's name
+
+        if (!userName) {
+            alert("You need to log in to place an order.");
+            window.location.href = "/login"; // Redirect to login if no user is found
+        }
+
         function addToCart(itemName, price) {
             cart.push({ itemName, price });
             total += price;
@@ -374,9 +382,9 @@
             cart.forEach((item, index) => {
                 const cartItem = document.createElement('div');
                 cartItem.innerHTML = `
-            <p>${item.itemName} - Rs ${item.price}</p>
-            <button onclick="removeFromCart(${index})" style="color: red; border: none; background: none; cursor: pointer;">Delete</button>
-        `;
+                    <p>${item.itemName} - Rs ${item.price}</p>
+                    <button onclick="removeFromCart(${index})" style="color: red; border: none; background: none; cursor: pointer;">Delete</button>
+                `;
                 cartContent.appendChild(cartItem);
             });
             totalPriceElement.textContent = `Rs ${total}`;
@@ -458,16 +466,28 @@
         }
 
         async function buyNow() {
+            if (!userName) {
+                alert("You need to log in to place an order.");
+                window.location.href = "/login"; // Ensure logged-in user is available
+                return;  // Don't proceed further if the user is not logged in
+            }
+
             try {
+                const order = {
+                    userName: userName,  // Add the logged-in user's name
+                    items: cart,
+                    total: total,
+                };
+
                 const response = await fetch('/order', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(cart), // Send the cart array
+                    body: JSON.stringify(order),
                 });
 
                 if (response.ok) {
                     alert('Order placed successfully!');
-                    cart = []; // Clear cart
+                    cart = [];
                     total = 0;
                     cartCount = 0;
                     updateCart();
@@ -479,9 +499,8 @@
                 console.error('Error placing order:', error);
             }
         }
-
-
     </script>
+
 </body>
 
 </html>
