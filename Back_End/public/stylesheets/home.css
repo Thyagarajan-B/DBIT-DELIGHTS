@@ -174,7 +174,7 @@ html {
 }
 
 .rightsection img {
-    width: 100%;
+    width: 100%;            
     border-radius: 15px;
     animation: pulse 2s infinite ease-in-out;
 }
