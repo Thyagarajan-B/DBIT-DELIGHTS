@@ -1,6 +1,6 @@
-# DBIT Delights
+# Global Delights
 
-DBIT Delights is a food ordering online application that simplifies the process of managing orders for customers and restaurants. Built using Node.js and Express.js for the backend, EJS for templating, and CSS for styling, it ensures a seamless user experience.
+Global Delights is a food ordering online application that simplifies the process of managing orders for customers and restaurants. Built using Node.js and Express.js for the backend, EJS for templating, and CSS for styling, it ensures a seamless user experience.
 
 ## Features
 
