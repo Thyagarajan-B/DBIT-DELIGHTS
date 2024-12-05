@@ -32,15 +32,6 @@ function isAuthenticated(req, res, next) {
     }
 }
 
-// MongoDB connection
-// mongoose.connect('mongodb://127.0.0.1:27017/ordersDB', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-// })
-//     .then(() => console.log('MongoDB connected!'))
-//     .catch((err) => console.error('MongoDB connection error:', err));
-
-// MongoDB Schema and Model
 const orderSchema = new mongoose.Schema({
     username: String,
     itemName: String,
@@ -118,15 +109,15 @@ app.post('/login', async (req, res) => {
             res.redirect('/home');
         } else {
             res.status(401).send(`
-                <h1>Wrong Password!</h1>
-                <b><a href="/login">Try Again</a></b>
+                <center><h1>Wrong Password!</h1>
+                <b><a href="/login">Try Again</a></b></center>
             `);
         }
     } catch (error) {
         console.error('Error during login:', error.message);
         res.status(500).send(`
-            <h1>Login Failed</h1>
-            <b><a href="/login">Try Again</a></b>
+            <center><h1>Login Failed</h1>
+            <b><a href="/login">Try Again</a></b></center>
         `);
     }
 });
@@ -143,8 +134,8 @@ app.get('/logout', (req, res) => {
         if (err) {
             console.error('Error destroying session:', err);
             return res.status(500).send(`
-                <h1>Failed to Logout</h1>
-                <b><a href="/home">Try Again</a></b>
+                <center><h1>Failed to Logout</h1>
+                <b><a href="/home">Try Again</a></b></center>
             `);
         }
         res.redirect('/');
@@ -187,22 +178,19 @@ app.get('/cart', async (req, res) => {
 
 // Admin login route
 app.get('/admin', (req, res) => {
-    res.render('admin'); // Render the admin login page
+    res.render('admin');
 });
 app.post('/admin/login', (req, res) => {
     const { username, password } = req.body;
-
-    // Validate admin credentials
-    if (username === 'admin' && password === 'secret') {
-        // If valid, render the admin dashboard
+    if (username === 'admin' && password === 'admin@123') {
         return res.render('admin-dashboard', { username });
     } else {
-        // If invalid, send back an error
         res.status(401).render('admin', { error: 'Invalid username or password!' });
     }
 });
 
 // Admin dashboard route
+
 app.get('/admin/dashboard', (req, res) => {
     if (!adminLoggedIn) {
         return res.status(403).send(`
@@ -210,8 +198,6 @@ app.get('/admin/dashboard', (req, res) => {
             <b><a href="/admin">Admin Login</a></b>
         `);
     }
-
-    // Instead of rendering a view, you should serve the admin HTML page directly
     res.render('admin');
 });
 
@@ -225,15 +211,11 @@ app.get('/admin/orders', async (req, res) => {
     }
 });
 
-
-
 // Admin logout route
 app.get('/admin/logout', (req, res) => {
-    // Optionally clear session data here
-    adminLoggedIn = false; // Reset the admin login status
-    res.redirect('/admin'); // Redirect back to login
+    adminLoggedIn = false; 
+    res.redirect('/admin'); 
 });
-
 
 
 // Contact Us, About Us, and Menu routes
@@ -272,7 +254,7 @@ app.post('/api/orders', async (req, res) => {
     }
 });
 app.post('/order', async (req, res) => {
-    const orders = req.body; // The cart items sent from the frontend
+    const orders = req.body;
 
     try {
         await Order.insertMany(
