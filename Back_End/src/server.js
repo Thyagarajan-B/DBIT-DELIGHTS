@@ -33,7 +33,7 @@ function isAuthenticated(req, res, next) {
 }
 
 const orderSchema = new mongoose.Schema({
-    userName: String, // The name of the user placing the order
+    userName: String, 
     items: [
         {
             itemName: String,
@@ -50,6 +50,7 @@ const Order = mongoose.model('Order', orderSchema);
 let adminLoggedIn = false;
 
 // Routes
+
 app.get('/', (req, res) => {
     res.render('index');
 });
@@ -128,7 +129,7 @@ app.post('/login', async (req, res) => {
 });
 
 app.use((req, res, next) => {
-    res.locals.user = req.session.user || null; // Pass user data to EJS templates
+    res.locals.user = req.session.user || null;
     next();
 });
 
@@ -199,8 +200,8 @@ app.post('/admin/login', (req, res) => {
     }
 });
 
-// Admin dashboard route
 
+// Admin dashboard route
 app.get('/admin/dashboard', (req, res) => {
     if (!adminLoggedIn) {
         return res.status(403).send(`   
@@ -210,6 +211,7 @@ app.get('/admin/dashboard', (req, res) => {
     }
     res.render('admin');
 });
+
 
 // Get all orders for admin
 app.get('/admin/orders', async (req, res) => {
@@ -240,9 +242,9 @@ app.get('/aboutus', isAuthenticated, (req, res) => {
 });
 
 app.get('/menu', isAuthenticated, (req, res) => {
-    const userName = req.session.name; // Retrieve user's name from the session
-    console.log('Logged-in user:', userName); // Debugging: check if name is available
-    res.render('menu', { user: { name: userName } }); // Pass user object to the EJS template
+    const userName = req.session.name;
+    console.log('Logged-in user:', userName);
+    res.render('menu', { user: { name: userName } }); 
 });
 
 
@@ -268,6 +270,8 @@ app.post('/api/orders', async (req, res) => {
         res.status(500).json({ message: "Failed to place order." });
     }
 });
+
+
 // Place an order
 app.post('/order', async (req, res) => {
     const { userName, items, total } = req.body;

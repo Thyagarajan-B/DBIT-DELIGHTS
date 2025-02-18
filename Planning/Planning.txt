@@ -1,0 +1,73 @@
+"MAINLY LEARN ABOUT GIT AND GITHUB". Create an account in GITHUB..
+
+---"Home page"--- (For all this huge background image and description food related pic..)
+
+All the page should contain nav bar atleast back to home button..
+
+1. About us -->new landing page.. (pics and description)..
+
+2. Our menu ---> new landing page(consist all the menu items).-->Card(all details of the food). Two separate sections for veg and non veg.. This is also for meals(canteen).
+
+3. Contact us --> new landing page(simple one)..
+
+4. Cart---
+
+5. Sign in --(buttons) 
+
+6. Logo and name(DBIT Delights) logo yet to decide
+
+7. Signature dish any 4 in the main home page... (this should be in the form zig zig form name and description)..
+
+8. While ordering, inform the time of arrival and cancellation should be done less than arrival time atleast before 5 min ...
+
+9. "Payment gateway" --(playlist) --> using (Razorpay )
+
+10. Footer --> contains all the page links..
+
+11. Optionally our chief content like cards..
+
+12. Customer review + rating 
+
+13. TECH STACK
+
+Front-end..
+HTML, CSS, JS 
+React JS
+
+Back-end
+Node js, express js, MongoDB
+
+
+Reference Website (copy and paste in google).
+
+1. https://bewellfed-wbs.webflow.io/
+2. https://galatea.webflow.io/
+3. https://zeal-taste-template.webflow.io/
+4. https://artigiano-pasta.webflow.io/
+
+
+
+Today Works to finish.
+-->Resposnivce check..
+-->login and register(but the backend setup and backend renderinbg is done connection between backend and fronend is left and also DB is also left)
+--> Our menu
+-->Contact us landing page
+-->cart and its functionality
+-->logo
+
+Remaining Works
+
+-->Admin panel(Important)
+-->ordering token number
+-->the time for food arrival
+-->payment gateway
+-->Customer rating and testimonal
+
+
+---------------------------
+cart add items add
+sigin - sigup
+contact us bug
+admin panel
+
+admin separate button
